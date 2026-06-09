@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBA Managerial Economics: 40-Day Course Outline</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #0d9488;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #111827;
+            color: var(--dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            position: relative;
+            width: 90vw;
+            max-width: 1100px;
+            height: 80vh;
+            max-height: 700px;
+            background: var(--light);
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Slide Types */
+        .slide.title-slide {
+            background: linear-gradient(135deg, var(--primary) 0%, #111827 100%);
+            color: white;
+            text-align: center;
+            align-items: center;
+        }
+
+        .slide.section-slide {
+            background: linear-gradient(135deg, var(--secondary) 0%, #115e59 100%);
+            color: white;
+            text-align: center;
+            align-items: center;
+        }
+
+        /* Typography */
+        .title-slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+        }
+
+        .title-slide h2 {
+            font-size: 1.8rem;
+            color: #99f6e4;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .section-slide h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-slide p {
+            font-size: 1.5rem;
+            color: #ccfbf1;
+        }
+
+        .slide h3 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 4px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .slide-content {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        .slide-content ul {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+
+        .slide-content li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .slide-content li::before {
+            content: "■";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Controls */
+        .controls {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .btn {
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: var(--dark);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .title-slide .btn, .section-slide .btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+
+        .progress-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: #e5e7eb;
+            z-index: 10;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 2rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+            z-index: 10;
+        }
+
+        .title-slide .slide-number, .section-slide .slide-number {
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation-container">
+    
+    <div class="slide title-slide active">
+        <h1>Managerial Economics</h1>
+        <h2>A 40-Day Blueprint for MBA Students</h2>
+        <p>Strategic Decision-Making Frameworks for Modern Managers</p>
+        <div class="slide-number">Slide 1 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Course Philosophy & Objectives</h3>
+        <div class="slide-content">
+            <ul>
+                <li><span class="highlight">Bridge the Gap:</span> Seamlessly connect economic theory to operational business strategies.</li>
+                <li><span class="highlight">Data-Driven:</span> Equip future executives to utilize elasticity, forecasting models, and quantitative metrics.</li>
+                <li><span class="highlight">Market Strategy:</span> Master the nuances of pricing power, competitive maneuvering, and regulatory hurdles.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 2 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>The 40-Day Path at a Glance</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Phase 1 (Days 1–10):</strong> Firm Objectives & Demand Analysis</li>
+                <li><strong>Phase 2 (Days 11–20):</strong> Production, Cost, & Operational Optimization</li>
+                <li><strong>Phase 3 (Days 21–30):</strong> Market Structures & Strategic Pricing</li>
+                <li><strong>Phase 4 (Days 31–40):</strong> Risk, Macro Environment, & Capstone Strategy</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 3 / 30</div>
+    </div>
+
+    <div class="slide section-slide">
+        <h2>Phase 1: Days 1–10</h2>
+        <p>Firm Objectives & Demand Analysis</p>
+        <div class="slide-number">Slide 4 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 1–2: Introduction & The Firm</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 1: Nature and Scope of Managerial Economics</strong><br>How microeconomics guides executive choices under constraints.</li>
+                <li><strong>Day 2: Goals of the Modern Corporate Entity</strong><br>Evaluating shareholder profit maximization versus stakeholder value creation theories.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 5 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Day 3: Core Economic Reasoning</h3>
+        <div class="slide-content">
+            <p>Every executive choice maps back to three pillars:</p>
+            <ul>
+                <li><span class="highlight">Opportunity Cost:</span> The implicit valuation of rejected paths.</li>
+                <li><span class="highlight">Incremental Concept:</span> Analyzing the broad cost/revenue variations of structural decisions.</li>
+                <li><span class="highlight">Marginal Analysis:</span> Finding the optimal point where MR = MC.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 6 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 4–5: Demand & Elasticity</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 4: Demand Dynamics</strong><br>Evaluating underlying determinants, market demand shifts, and individual behaviors.</li>
+                <li><strong>Day 5: Price Elasticity of Demand (PED)</strong><br>Quantifying market sensitivity and mapping PED directly to revenue-maximization tactics.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 7 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 6–7: Multi-Dimensional Elasticity</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 6: Cross-Price and Income Elasticity</strong><br>Anticipating structural demand changes for complementary networks and substitute products.</li>
+                <li><strong>Day 7: Business Strategic Applications</strong><br>Structuring dynamic pricing schemes and evaluating consumer exposure to corporate taxes.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 8 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 8–9: Demand Estimation & Forecasting</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 8: Empirical Estimation Methods</strong><br>Extracting customer insight via statistical consumer surveys, controlled tracking, and field market experiments.</li>
+                <li><strong>Day 9: Quantitative Forecasting</strong><br>Applying multi-variable linear regressions and analyzing time-series datasets.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 9 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Day 10: Case Analysis – Phase 1 Wrap</h3>
+        <div class="slide-content">
+            <p><span class="highlight">Case Focus:</span> Dynamic Demand Analysis</p>
+            <ul>
+                <li>Evaluating real-world elasticity shifts inside modern platform economies.</li>
+                <li><strong>Deliverable:</strong> Formulate a strategic corporate response to rapid competitor pricing changes using empirical demand estimates.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 10 / 30</div>
+    </div>
+
+    <div class="slide section-slide">
+        <h2>Phase 2: Days 11–20</h2>
+        <p>Production, Cost, & Operational Optimization</p>
+        <div class="slide-number">Slide 11 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 11–12: Short-Run Production</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 11: Production Function with One Variable Input</strong><br>Tracking interactions between Total Product, Marginal Product, and Average Product.</li>
+                <li><strong>Day 12: Law of Diminishing Returns</strong><br>Identifying operational capacity thresholds and avoiding labor-saturation inefficiencies.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 12 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 13–14: Long-Run Scale</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 13: Isoquants & Isocosts</strong><br>Mathematically determining the absolute lowest-cost combination of labor and capital inputs.</li>
+                <li><strong>Day 14: Returns to Scale</strong><br>Analyzing scaling patterns (increasing, constant, decreasing) across infrastructure-heavy vs. digital industries.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 13 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 15–16: Cost Architecture</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 15: Managerial Cost Taxonomy</strong><br>Isolating accounting outlays from economic costs, tracking implicit commitments, and managing sunk cost psychological fallacies.</li>
+                <li><strong>Day 16: Short-Run Cost Structures</strong><br>Graphing the interplay between TFC, TVC, and the critical path of the Marginal Cost curve.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 14 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Day 17: Long-Run Optimization</h3>
+        <div class="slide-content">
+            <p>The Evolution of Corporate Capacity:</p>
+            <ul>
+                <li><span class="highlight">The Envelope Curve:</span> Understanding the long-run average cost profile as an array of short-run configurations.</li>
+                <li><span class="highlight">Economies of Scale:</span> Efficiencies gained via volume.</li>
+                <li><span class="highlight">Economies of Scope:</span> Efficiencies achieved by cross-utilizing assets across multiple product lines.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 15 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 18–19: Risk & Leverage Metrics</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 18: Break-Even Optimization</strong><br>Calculating precise margin inflection points across diversified, multi-category corporate product portfolios.</li>
+                <li><strong>Day 19: Operating Leverage</strong><br>Analyzing operational structures: evaluating high fixed-cost profiles relative to variable volatility risks.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 16 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Day 20: Midterm & Operational Review</h3>
+        <div class="slide-content">
+            <ul>
+                <li><span class="highlight">Assessment Focus:</span> Quantitative application of production optimization and cost estimations.</li>
+                <li><span class="highlight">Review:</span> Debriefing asset allocation bottlenecks under strict capital constraints.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 17 / 30</div>
+    </div>
+
+    <div class="slide section-slide">
+        <h2>Phase 3: Days 21–30</h2>
+        <p>Market Structures & Strategic Pricing</p>
+        <div class="slide-number">Slide 18 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 21–22: Perfect Competition & Monopoly</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 21: Perfect Competition</strong><br>Survival strategies in highly atomized environments; calculating short-run shutdown signals.</li>
+                <li><strong>Day 22: Monopoly Frameworks</strong><br>Managing long-term entry barriers, scaling barriers, and quantifying the absolute social deadweight losses of pricing dominance.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 19 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 23–24: Imperfect Markets & Oligopoly</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 23: Monopolistic Competition</strong><br>Leveraging product differentiation, continuous design innovations, and non-price brand equity pillars.</li>
+                <li><strong>Day 24: Oligopoly Dynamics</strong><br>Navigating highly concentrated market segments and tracking structural price rigidity through Sweezy's kinked demand model.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 20 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Day 25: Classic Duopoly Paradigms</h3>
+        <div class="slide-content">
+            <p>Choosing the Right Competitive Battleground:</p>
+            <ul>
+                <li><span class="highlight">Cournot Output Competition:</span> Simultaneous volume-setting decisions when asset investments lock in output capacities.</li>
+                <li><span class="highlight">Bertrand Price Competition:</span> Severe simultaneous price undercutting, highlighting the risk of margins reverting to marginal costs.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 21 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Day 26: Game Theory & Strategic Moves</h3>
+        <div class="slide-content">
+            <ul>
+                <li><span class="highlight">Nash Equilibrium:</span> Identifying stable multi-competitor interactions where no player has an incentive to unilaterally deviate.</li>
+                <li><span class="highlight">Prisoner's Dilemma in Business:</span> Diagnosing value-destructive price wars and structural marketing over-expenditures.</li>
+                <li><span class="highlight">Sequential Games:</span> Using entry deterrence and commitment signals to reshape market realities.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 22 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Day 27: Value Capture – Price Discrimination</h3>
+        <div class="slide-content">
+            <p>Strategies for segmenting consumer surplus:</p>
+            <ul>
+                <li><strong>First-Degree (Personalized Pricing):</strong> Tailoring charges to matches individuals' maximum willingness to pay via predictive data.</li>
+                <li><strong>Second-Degree (Menu Pricing):</strong> Leveraging volume incentives, usage metrics, and multi-tier versioning.</li>
+                <li><strong>Third-Degree (Group Pricing):</strong> Splitting demographics using distinct regional or professional profile features.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 23 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 28–29: Advanced Pricing Architectures</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 28: Multi-Tier Extraction Tariffs</strong><br>Deploying two-part tariffs, strategic bundle options, product tying mechanisms, and peak-load variations.</li>
+                <li><strong>Day 29: Multi-Unit Transfer Pricing</strong><br>Calculating intermediate internal asset costs to optimize tax burdens and performance between international cross-subsidiaries.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 24 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Day 30: Interactive Competitive Simulation</h3>
+        <div class="slide-content">
+            <p><span class="highlight">Workshop Focus:</span> Real-time Market Intervention</p>
+            <ul>
+                <li>Live gaming simulation testing team responses under duopoly and oligopoly stress.</li>
+                <li><strong>Core Focus:</strong> Tracking game-theoretic matrices to establish industry equilibrium.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 25 / 30</div>
+    </div>
+
+    <div class="slide section-slide">
+        <h2>Phase 4: Days 31–40</h2>
+        <p>Risk, Macro Environment, & Capstone Strategy</p>
+        <div class="slide-number">Slide 26 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 31–33: Information Economics & Capital</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 31: Risk Profiles and Decisions:</strong> Quantifying uncertainty utilizing statistical variances, expected value weights, and utility profiles.</li>
+                <li><strong>Day 32: Asymmetric Market Information:</strong> Mitigating corporate exposures to moral hazard risks and adverse selection through signaling.</li>
+                <li><strong>Day 33: Long-term Capital Budgeting:</strong> Evaluating strategic initiatives via discounted NPV and internal rate of return (IRR) filters.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 27 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 34–36: The Macro Landscape</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 34: Systemic Macro Indicators</strong><br>Deciphering output metrics, inflationary trends, and employment indices for corporate tracking.</li>
+                <li><strong>Day 35: Policy Impact Matrix</strong><br>Mapping monetary adjustments and fiscal adjustments to forecast corporate capital costs.</li>
+                <li><strong>Day 36: Structural Business Cycles</strong><br>Adapting production volumes and asset build-outs to align with broader economic shifts.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 28 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 37–38: Regulations & Externalities</h3>
+        <div class="slide-content">
+            <ul>
+                <li><strong>Day 37: Failures, Externalities & CSR</strong><br>Pricing regulatory carbon exposures, correcting market inefficiencies, and structuring green corporate solutions.</li>
+                <li><strong>Day 38: Antitrust Compliance Realities</strong><br>Assessing regulatory limits on mergers, market power execution, and international integration reviews.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 29 / 30</div>
+    </div>
+
+    <div class="slide">
+        <h3>Days 39–40: Capstone Strategy Presentations</h3>
+        <div class="slide-content">
+            <p>The Culmination of the Managerial Economics Toolkit:</p>
+            <ul>
+                <li>Teams present comprehensive strategic assessments of real-world corporations.</li>
+                <li><strong>Evaluation Focus:</strong> Demonstrating rigorous application across demand forecasting, optimization modeling, game theory maneuvers, and macroeconomic risk navigation.</li>
+            </ul>
+        </div>
+        <div class="slide-number">Slide 30 / 30</div>
+    </div>
+
+    <div class="controls">
+        <button class="btn" id="prevBtn" onclick="changeSlide(-1)">Previous</button>
+        <button class="btn" id="nextBtn" onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+</div>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const progressBar = document.getElementById('progressBar');
+
+    function updatePresentation() {
+        slides.forEach((slide, index) => {
+            if(index === currentSlide) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+
+        // Update Progress Bar
+        const progressPercent = (currentSlide / (slides.length - 1)) * 100;
+        progressBar.style.width = progressPercent + '%';
+    }
+
+    function changeSlide(direction) {
+        currentSlide += direction;
+        if (currentSlide < 0) currentSlide = 0;
+        if (currentSlide >= slides.length) currentSlide = slides.length - 1;
+        updatePresentation();
+    }
+
+    // Keyboard controls support
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowRight' || event.key === ' ') {
+            changeSlide(1);
+        } else if (event.key === 'ArrowLeft') {
+            changeSlide(-1);
+        }
+    });
+
+    // Initialize
+    updatePresentation();
+</script>
+
+</body>
+</html>
