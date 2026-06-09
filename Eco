@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Slide HTML Presentation Template</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.5);
+            --slide-bg: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #deck-container {
+            position: relative;
+            width: 85vw;
+            max-width: 1200px;
+            height: 75vh;
+            max-height: 800px;
+            background-color: var(--slide-bg);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 4rem 5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Slide Layouts */
+        .title-slide {
+            text-align: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #e2e8f0;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        .two-column {
+            display: flex;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex: 1;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        .quote {
+            font-size: 2.5rem;
+            font-style: italic;
+            text-align: center;
+            color: #93c5fd;
+            border-left: none;
+            padding: 2rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+        }
+
+        /* Controls */
+        #controls {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        button {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Progress Bar */
+        #progress-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #334155;
+        }
+
+        #progress-bar {
+            height: 100%;
+            background-color: var(--accent-color);
+            width: 0%;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        #slide-counter {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 2.5rem;
+            font-size: 1.1rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="deck-container">
+        
+        <!-- Slide 1 -->
+        <div class="slide title-slide active">
+            <h1>Strategic Vision 2026</h1>
+            <p style="font-size: 2rem;">A comprehensive roadmap for the future</p>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide">
+            <h2>Executive Summary</h2>
+            <ul>
+                <li>Overview of current market landscape</li>
+                <li>Identification of key growth opportunities</li>
+                <li>Strategic initiatives for Q3 and Q4</li>
+                <li>Financial projections and resource allocation</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide">
+            <h2>The Problem Statement</h2>
+            <div class="two-column">
+                <div class="col">
+                    <p>Current solutions are fragmented and inefficient, leading to massive losses in productivity.</p>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li>High customer churn rate</li>
+                        <li>Siloed data infrastructure</li>
+                        <li>Increasing operational costs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide">
+            <h2>Our Solution</h2>
+            <p>An integrated, AI-driven ecosystem designed to streamline workflows and predict customer needs before they arise.</p>
+            <ul>
+                <li>Unified data pipeline</li>
+                <li>Predictive analytics dashboard</li>
+                <li>Automated customer engagement</li>
+            </ul>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide title-slide">
+            <h1>Market Analysis</h1>
+            <p>Understanding the competitive landscape</p>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="slide">
+            <h2>Target Demographics</h2>
+            <ul>
+                <li><strong>Primary:</strong> Enterprise B2B SaaS companies (1,000+ employees)</li>
+                <li><strong>Secondary:</strong> Mid-market tech startups scaling operations</li>
+                <li><strong>Geography:</strong> North America and Western Europe initially</li>
+            </ul>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="slide">
+            <h2>Market Size</h2>
+            <div class="two-column">
+                <div class="col">
+                    <h3 style="font-size: 3rem; color: #60a5fa;">$45B</h3>
+                    <p>Total Addressable Market (TAM)</p>
+                </div>
+                <div class="col">
+                    <h3 style="font-size: 3rem; color: #34d399;">$12B</h3>
+                    <p>Serviceable Obtainable Market (SOM)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide">
+            <h2>Competitive Advantage</h2>
+            <p>Why we win in a crowded market:</p>
+            <ul>
+                <li>Proprietary machine learning models (Patent Pending)</li>
+                <li>Seamless 1-click integration with existing tech stacks</li>
+                <li>Award-winning 24/7 customer success framework</li>
+            </ul>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="slide">
+            <h2>Industry Quote</h2>
+            <div class="quote">
+                "The companies that survive the next decade will be those that turn their data from a storage cost into an active asset."
+            </div>
+            <p style="text-align: center; margin-top: 1rem;">- Tech Industry Analyst</p>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="slide title-slide">
+            <h1>Product Architecture</h1>
+            <p>Under the hood of our platform</p>
+        </div>
+
+        <!-- Slide 11 -->
+        <div class="slide">
+            <h2>Core Modules</h2>
+            <ul>
+                <li>Module 1: Data Ingestion Engine</li>
+                <li>Module 2: Real-time Processing Core</li>
+                <li>Module 3: Visualization & Reporting UI</li>
+                <li>Module 4: Automated Trigger System</li>
+            </ul>
+        </div>
+
+        <!-- Slide 12 -->
+        <div class="slide">
+            <h2>Security & Compliance</h2>
+            <div class="two-column">
+                <div class="col">
+                    <p>Enterprise-grade security is built into the foundation, not bolted on as an afterthought.</p>
+                </div>
+                <div class="col">
+                    <ul>
+                        <li>SOC 2 Type II Certified</li>
+                        <li>GDPR & CCPA Compliant</li>
+                        <li>End-to-end 256-bit encryption</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13 -->
+        <div class="slide">
+            <h2>Deployment Options</h2>
+            <ul>
+                <li><strong>Cloud-Native:</strong> Fully managed multi-tenant AWS/GCP hosting.</li>
+                <li><strong>On-Premise:</strong> Dockerized deployment for high-security environments.</li>
+                <li><strong>Hybrid:</strong> Data stays local, analytics run in the cloud.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 14 -->
+        <div class="slide title-slide">
+            <h1>Go-to-Market Strategy</h1>
+            <p>How we reach our customers</p>
+        </div>
+
+        <!-- Slide 15 -->
+        <div class="slide">
+            <h2>Pricing Model</h2>
+            <ul>
+                <li><strong>Starter:</strong> $499/mo (Up to 10 users, standard support)</li>
+                <li><strong>Professional:</strong> $1,299/mo (Up to 50 users, advanced analytics)</li>
+                <li><strong>Enterprise:</strong> Custom pricing (Unlimited users, dedicated success manager)</li>
+            </ul>
+        </div>
+
+        <!-- Slide 16 -->
+        <div class="slide">
+            <h2>Sales Channels</h2>
+            <div class="two-column">
+                <div class="col">
+                    <h3>Direct Sales</h3>
+                    <p>Account executives targeting enterprise pain points through consultative selling.</p>
+                </div>
+                <div class="col">
+                    <h3>Channel Partners</h3>
+                    <p>Leveraging IT consultancies and system integrators for massive reach.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17 -->
+        <div class="slide">
+            <h2>Marketing Roadmap</h2>
+            <ul>
+                <li>Q1: Thought leadership webinars and whitepapers</li>
+                <li>Q2: Launch of partner certification program</li>
+                <li>Q3: Major presence at industry trade shows</li>
+                <li>Q4: Account-based marketing (ABM) scale-up</li>
+            </ul>
+        </div>
+
+        <!-- Slide 18 -->
+        <div class="slide title-slide">
+            <h1>Financial Projections</h1>
+            <p>Growth, Revenue, and Margins</p>
+        </div>
+
+        <!-- Slide 19 -->
+        <div class="slide">
+            <h2>Revenue Forecast</h2>
+            <ul>
+                <li>Year 1: $2.5M (Focus on early adopters)</li>
+                <li>Year 2: $8.0M (Channel partnerships activate)</li>
+                <li>Year 3: $25.0M (Enterprise scale-up)</li>
+            </ul>
+        </div>
+
+        <!-- Slide 20 -->
+        <div class="slide">
+            <h2>Cost Structure</h2>
+            <div class="two-column">
+                <div class="col">
+                    <ul>
+                        <li>40% R&D and Engineering</li>
+                        <li>35% Sales & Marketing</li>
+                        <li>15% Customer Success</li>
+                        <li>10% G&A</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <p>Optimized for rapid scale while maintaining target gross margins of 82%.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 21 -->
+        <div class="slide">
+            <h2>Key Metrics to Track</h2>
+            <ul>
+                <li>Customer Acquisition Cost (CAC)</li>
+                <li>Lifetime Value (LTV) -> Target ratio of 4:1</li>
+                <li>Net Revenue Retention (NRR) -> Target 120%+</li>
+                <li>Monthly Active Users (MAU)</li>
+            </ul>
+        </div>
+
+        <!-- Slide 22 -->
+        <div class="slide title-slide">
+            <h1>Team & Leadership</h1>
+            <p>The people driving the vision</p>
+        </div>
+
+        <!-- Slide 23 -->
+        <div class="slide">
+            <h2>Founding Team</h2>
+            <div class="two-column">
+                <div class="col">
+                    <h3>CEO</h3>
+                    <p>15+ years in Enterprise B2B software scaling.</p>
+                </div>
+                <div class="col">
+                    <h3>CTO</h3>
+                    <p>Former Lead Architect at Fortune 500 tech firm.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 24 -->
+        <div class="slide">
+            <h2>Advisory Board</h2>
+            <ul>
+                <li>Jane Doe - Industry Expert & former CMO</li>
+                <li>John Smith - AI Research Lead at University</li>
+                <li>Sarah Lee - Venture Partner & Strategy Advisor</li>
+            </ul>
+        </div>
+
+        <!-- Slide 25 -->
+        <div class="slide">
+            <h2>Hiring Plan (Next 6 Months)</h2>
+            <ul>
+                <li>Tripling the engineering team to accelerate product roadmap.</li>
+                <li>Hiring VP of Sales to build out the outbound enterprise team.</li>
+                <li>Establishing European operations hub.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 26 -->
+        <div class="slide title-slide">
+            <h1>Timeline & Milestones</h1>
+            <p>Executing the plan</p>
+        </div>
+
+        <!-- Slide 27 -->
+        <div class="slide">
+            <h2>Upcoming Milestones</h2>
+            <ul>
+                <li><strong>Month 1:</strong> V2 Product Launch</li>
+                <li><strong>Month 3:</strong> Announce key strategic partnership</li>
+                <li><strong>Month 6:</strong> Reach 100 Enterprise Customers</li>
+                <li><strong>Month 12:</strong> Cash flow break-even</li>
+            </ul>
+        </div>
+
+        <!-- Slide 28 -->
+        <div class="slide">
+            <h2>Risk Mitigation</h2>
+            <div class="two-column">
+                <div class="col">
+                    <p><strong>Risk:</strong> Extended enterprise sales cycles.</p>
+                    <p><strong>Mitigation:</strong> Introduce "pilot" pricing tier to speed up initial adoption.</p>
+                </div>
+                <div class="col">
+                    <p><strong>Risk:</strong> Competitor feature parity.</p>
+                    <p><strong>Mitigation:</strong> Accelerate patent filings and lock in exclusive data partnerships.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 29 -->
+        <div class="slide">
+            <h2>Summary</h2>
+            <ul>
+                <li>Massive market opportunity with painful current solutions.</li>
+                <li>Superior, defensible technology platform.</li>
+                <li>Experienced team ready to execute.</li>
+                <li>Clear path to $25M ARR in 36 months.</li>
+            </ul>
+        </div>
+
+        <!-- Slide 30 -->
+        <div class="slide title-slide">
+            <h1>Thank You</h1>
+            <p>Questions & Answers</p>
+            <p style="font-size: 1.2rem; color: #94a3b8; margin-top: 2rem;">contact@company.com | www.company.com</p>
+        </div>
+
+        <!-- Dynamic UI Elements -->
+        <div id="slide-counter">1 / 30</div>
+        
+        <div id="controls">
+            <button onclick="prevSlide()">&#8592; Prev</button>
+            <button onclick="nextSlide()">Next &#8594;</button>
+        </div>
+
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progress-bar');
+        const slideCounter = document.getElementById('slide-counter');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+
+        function updateUI() {
+            // Update Active Slide
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+
+            // Update Progress Bar
+            const progress = (currentSlide / (totalSlides - 1)) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            // Update Counter
+            slideCounter.innerText = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateUI();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateUI();
+            }
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Initialize UI
+        updateUI();
+    </script>
+</body>
+</html>
